@@ -1,0 +1,61 @@
+plugins {
+    id 'java'
+    id "io.freefair.lombok" version "6.4.1"
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+def springBootVersion = '2.6.6'
+
+dependencies {
+    implementation group: 'com.microsoft.sqlserver', name: 'mssql-jdbc', version: '11.2.1.jre11'
+    testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.7.5'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    compileOnly 'org.projectlombok:lombok'
+    runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc'
+    implementation group: 'org.springframework', name: 'spring-context-support', version: '5.3.20'
+    runtimeOnly 'mysql:mysql-connector-java'
+    compileOnly "org.springframework.boot:spring-boot-configuration-processor"
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.6.5.Final'
+    implementation group: 'org.hibernate', name: 'hibernate-hikaricp', version: '5.4.10.Final'
+    implementation group: 'com.zaxxer', name: 'HikariCP', version: '3.4.5'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-autoconfigure', version: springBootVersion
+    implementation group: 'org.springframework', name: 'spring-orm', version: '5.3.19'
+    implementation group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.2.3.Final'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.13.2.2'
+    compileOnly group: 'com.h2database', name: 'h2', version: '1.4.199'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: springBootVersion
+    implementation group: 'org.springframework.boot', name: 'spring-boot-autoconfigure', version: springBootVersion
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: springBootVersion
+    compileOnly group: 'org.springframework.boot', name: 'spring-boot-configuration-processor', version: springBootVersion
+    compileOnly group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.13.2.2'
+    implementation group: 'log4j', name: 'log4j', version: '1.2.17'
+    implementation group: 'org.hibernate.validator', name: 'hibernate-validator', version: '6.1.5.Final'
+    implementation group: 'org.hibernate', name: 'hibernate-hikaricp', version: '5.4.10.Final'
+    implementation group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.4.10.Final'
+    implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.6.5.Final'
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.28'
+    implementation group: 'org.codehaus.groovy', name: 'groovy-all', version: '2.4.8'
+    implementation group: 'commons-io', name: 'commons-io', version: '2.11.0'
+    implementation project(':Repository')
+}
+
+test {
+    useJUnitPlatform()
+}

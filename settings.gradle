@@ -1,0 +1,5 @@
+rootProject.name = 'Trucks'
+include 'Repository'
+include 'Service'
+include 'Web'
+
